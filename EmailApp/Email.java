@@ -28,6 +28,7 @@ public class Email {
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companySuffix;
     }
 
+
     //Ask for department
     private String setDepartment()
     {
