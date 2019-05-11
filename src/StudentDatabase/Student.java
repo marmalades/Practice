@@ -8,7 +8,7 @@ public class Student
     private String lastName;
     private int classification;
     private String studentID;
-    private String courses = null;
+    private String courses = "";
     private int tuitionBalance = 0; //each course is 600. maybe add credit hours in DB
     private static int costOfCourse = 600;
     private static int ID = 100;
@@ -28,9 +28,6 @@ public class Student
         this.classification = in.nextInt();
 
         setStudentID();
-
-        System.out.println(firstName + " " + lastName + ": " + classification + " " + studentID);
-
     }
 
     //Generate an ID
@@ -56,8 +53,6 @@ public class Student
             }
             else {break;}
         }while (1 != 0);
-
-        System.out.println("ENROLLED IN: " + courses);
     }
 
     //View balance
@@ -68,6 +63,7 @@ public class Student
     //Pay tuition
     public void payTuition ()
     {
+        viewBalance();
         System.out.print("Enter your payment amount: ");
         Scanner in = new Scanner(System.in);
         int payment = in.nextInt();
@@ -77,4 +73,14 @@ public class Student
         viewBalance();
     }
     //Show status
+
+    public String showInfo()
+    {
+        return "\nName: " + firstName + " " + lastName +
+                "\nClassification: " + classification +
+                "\nStudent ID: " + studentID +
+                "\nCourses Enrolled: " + courses +
+                "\nBalance: $" + tuitionBalance;
+    }
 }
+
